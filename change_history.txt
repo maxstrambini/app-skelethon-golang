@@ -1,0 +1,17 @@
+APP SKELETON WITH ROTATING LOG
+
+path: ''
+
+started: 
+
+prima di eseguire in *nix lanciare:
+>export GOPATH=$PWD
+
+derivata da File_Watch_And_Move / FWM
+
+# author: Massimo Strambini
+
+[2019-03-15]
+
+
+
