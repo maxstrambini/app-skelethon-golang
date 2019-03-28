@@ -8,8 +8,10 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
+	"reflect"
 )
 
 //Configuration struct with all variables imported from config.json
@@ -26,7 +28,8 @@ func ReadConfig() {
 	var err error
 	conf, err = loadConfig(configFile)
 	if err == nil {
-		log.Printf("%+v\n", conf)
+		//log.Printf("%+v\n", conf)
+		log.Printf("Configuration: \n%v", prettyPrintConf())
 	} else {
 		log.Println(err)
 	}
@@ -55,6 +58,26 @@ func loadConfig(filename string) (Configuration, error) {
 	}
 
 	return c, nil
+}
+
+//prettyPrintStructLocal prints a struct using reflection, simple version
+//la stessa funzione di pretty print è riportata nelle goutils in due forme:
+//PrettyPrintStruct() printing to stdout and PrettyFormatStruct() returning a string
+func prettyPrintConf() string {
+	s := ""
+	typ := reflect.TypeOf(conf)
+	val := reflect.ValueOf(conf)
+	for i := 0; i < typ.NumField(); i++ {
+		if val.Field(i).CanInterface() {
+			fieldValue := val.Field(i).Interface()
+			//fmt.Println(fieldValue)
+			s += fmt.Sprintf("%d: %s %s = %v\n", i,
+				typ.Field(i).Name, val.Field(i).Type(), fieldValue)
+		} else {
+			s += fmt.Sprintf("%d: %s (private value)\n", i, typ.Field(i).Name)
+		}
+	}
+	return s
 }
 
 /*
