@@ -24,6 +24,10 @@ var appVersion = "1.0.1"
 
 var start = time.Now()
 
+func init() {
+	log.Printf("init app.go (main)")
+}
+
 func main() {
 
 	//setting up the log:

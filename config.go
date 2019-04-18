@@ -21,6 +21,10 @@ type Configuration struct {
 
 var conf Configuration
 
+func init() {
+	log.Printf("init config.go")
+}
+
 //ReadConfig reads 'config.json' and fills Configuration struct
 func ReadConfig() {
 	configFile := "config.json"
