@@ -13,5 +13,7 @@ derivata da File_Watch_And_Move / FWM
 
 [2019-03-15]
 
+[2019-04-18] changed config to pretty print values
+
 
 
