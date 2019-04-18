@@ -1,5 +1,9 @@
 {
 
-"dummy": ""
+    "project_roots": ["D:\\DEVELOP\\PAM\\examples",
+    "D:\\temp",
+    "c:\\test\\test 1"],
+
+    "dummy": ""
 
 }

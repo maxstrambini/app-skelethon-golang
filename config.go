@@ -2,6 +2,8 @@
 
 configuration management
 
+[2019-04-18] pretty printing values to loggit status
+
 */
 
 package main
@@ -17,13 +19,11 @@ import (
 //Configuration struct with all variables imported from config.json
 type Configuration struct {
 	Dummy string `json:"dummy"`
+
+	ProjectRoots []string `json:"project_roots"`
 }
 
 var conf Configuration
-
-func init() {
-	log.Printf("init config.go")
-}
 
 //ReadConfig reads 'config.json' and fills Configuration struct
 func ReadConfig() {
@@ -34,6 +34,7 @@ func ReadConfig() {
 	if err == nil {
 		//log.Printf("%+v\n", conf)
 		log.Printf("Configuration: \n%v", prettyPrintConf())
+
 	} else {
 		log.Println(err)
 	}
