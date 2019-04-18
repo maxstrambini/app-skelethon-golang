@@ -2,7 +2,7 @@
 
 configuration management
 
-[2019-04-18] pretty printing values to loggit status
+[2019-04-18] pretty printing values to log status
 
 */
 
